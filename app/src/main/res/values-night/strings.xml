@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="label_new_task">Criar tarefa</string>
+    <string name="label_title">Titulo</string>
+    <string name="label_data">Data</string>
+    <string name="label_hour">Hora</string>
+    <string name="label_cancel">Cancelar</string>
+    <string name="main_title">Tarefas</string>
+    <string name="fab_new_task">botão adicionar nova tarefa</string>
+</resources>
