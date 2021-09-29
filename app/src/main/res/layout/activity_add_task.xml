@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_add_task">
+    tools:context=".ui.Activity_add_task">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -94,7 +94,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/cancel_button"
+        android:id="@+id/cancelar_button"
         android:layout_width="0dp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_height="wrap_content"
