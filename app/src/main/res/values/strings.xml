@@ -7,4 +7,7 @@
     <string name="label_cancel">Cancelar</string>
     <string name="main_title">Tarefas</string>
     <string name="fab_new_task">botão adicionar nova tarefa</string>
+    <string name="menu_edit">editar</string>
+    <string name="menu_delete">excluir</string>
+    <string name="empty">Você não tem nenhuma tarefa a fazer</string>
 </resources>

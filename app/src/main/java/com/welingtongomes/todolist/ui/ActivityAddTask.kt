@@ -1,9 +1,8 @@
 package com.welingtongomes.todolist.ui
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -14,14 +13,26 @@ import com.welingtongomes.todolist.extensions.text
 import com.welingtongomes.todolist.model.Task
 import java.util.*
 
-class Activity_add_task : AppCompatActivity() {
+class ActivityAddTask : AppCompatActivity() {
     lateinit var binding: ActivityAddTaskBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+
+        if (intent.hasExtra(TASK_ID)){
+            val taskId = intent.getIntExtra(TASK_ID, 0)
+            TaskDataSource.findById(taskId)?.let {
+                binding.inputHora.text = it.hora
+                binding.inputData.text = it.data
+                binding.inputTitle.text = it.title
+            }
+        }
 
         insertListeners()
     }
@@ -57,9 +68,16 @@ class Activity_add_task : AppCompatActivity() {
                     title = binding.inputTitle.text,
                     data = binding.inputData.text,
                     hora = binding.inputHora.text,
+                    id = intent.getIntExtra(TASK_ID, 0)
             )
+
             TaskDataSource.insertTask(task)
-            Log.i("TESTE TASK","LIst TASK:\n" + TaskDataSource.getList())
+            setResult(Activity.RESULT_OK)
+            finish()
         }
+    }
+
+    companion object{
+        const val TASK_ID = "task_id"
     }
 }
