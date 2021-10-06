@@ -1,10 +1,10 @@
 package com.welingtongomes.todolist.model
 
 data class Task(
-        val title: String,
-        val data: String,
-        val hora: String,
-        val id: Int = 0
+        var title: String,
+        val date: String,
+        val hour: String,
+        val id: Int
 ){
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

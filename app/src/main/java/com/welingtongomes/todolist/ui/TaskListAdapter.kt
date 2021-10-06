@@ -1,19 +1,14 @@
 package com.welingtongomes.todolist.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
 import android.widget.PopupMenu
-import androidx.annotation.NonNull
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.welingtongomes.todolist.R
 import com.welingtongomes.todolist.databinding.ItemListBinding
 import com.welingtongomes.todolist.model.Task
 
-class TaskListAdapter() : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>(){
+class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>(){
     private lateinit var list : MutableList<Task>
     var listenerEdit : (Task) -> Unit = {}
     var listenerDelete : (Task) -> Unit = {}
@@ -43,7 +38,7 @@ class TaskListAdapter() : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>()
 
         fun bind(item: Task) {
             binding.titleTask.text = item.title
-            binding.dateTask.text = "${item.data} ${item.hora}"
+            binding.dateTask.text = "${item.date} ${item.hour}"
             binding.ivMore.setOnClickListener {
                 showPopup(item)
             }
@@ -64,7 +59,6 @@ class TaskListAdapter() : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>()
         }
 
     }
-
 
 }
 
